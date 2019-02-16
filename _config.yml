@@ -19,7 +19,16 @@ markdown: kramdown
 highlighter: rouge
 excerpt_separator: <!--more-->
 permalink: /articles/:year-:month/:title
-exclude: [vendor]
+exclude:
+  - README.md
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - changelog.md
+  - "*.Rmd"
+  - vendor
+  - .travis.yml
+  - node_modules
 
 kramdown:
   syntax_highlighter: rouge
