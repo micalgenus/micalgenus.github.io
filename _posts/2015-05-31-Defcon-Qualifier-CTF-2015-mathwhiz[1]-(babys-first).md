@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Defcon Qualifier CTF 2015 - mathwhiz[1] (babys-first)
-categories: [Server]
+categories: [CTF]
 comments: true
 ---
 
