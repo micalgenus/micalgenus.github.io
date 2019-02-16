@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kernel task_uid
-categories: [Wargame]
+categories: [Kernel]
 comments: true
 ---
 
