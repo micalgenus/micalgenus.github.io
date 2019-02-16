@@ -30,7 +30,7 @@ Nope!
 1234를 입력해 보았는데, 이렇게 뜹니다. 그럼 오버플로우를 일으켜 보겠습니다.
 
 {% highlight bash %}
-root@ubuntu:~# (python -c 'print "A"*10000;cat) | ./re_100_final
+root@ubuntu:~# (python -c 'print "A"*10000';cat) | ./re_100_final
 Please enter secret flag:
 Nope!
 close failed in file object destructor
