@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kernel task_uid
+title: task_uid
 categories: [Kernel]
 comments: true
 ---
