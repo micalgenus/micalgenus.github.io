@@ -1,1 +1,73 @@
-theme: jekyll-theme-slate
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Micalgenus
+email: micalgenus@gmail.com
+description: A simple and awesome blog theme powered by jekyll.
+url: https://micalgenus.github.io
+keywords: ["blog", "jekyll"]
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone: Asia/Seoul
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+permalink: /articles/:year-:month/:title
+exclude: [vendor]
+
+kramdown:
+  syntax_highlighter: rouge
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Micalgenus
+  avatar: avatar.jpg
+  job: "JavaScript Full-Stack Developer"
+  bio: ""
+  email: micalgenus@gmail.com
+  disqus-shortname: micalgenus-blog
+  twitter: #username
+  facebook: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: micalgenus
+  gitlab: #username
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: gyeong-su-han
+  skype: #username
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  500px: #username
+  codepen: #username
+  reddit: #username
+  telegram: #username
