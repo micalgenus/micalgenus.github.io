@@ -16,15 +16,15 @@
   // When the user scrolls the page, execute myFunction 
 
   window.onscroll = () => { onScroll(); };
-
-  var header = document.getElementById("progress-container");
-  var sticky = header.offsetTop;
   
   function onScroll() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height) * 100;
     document.getElementById("page-status").style.width = scrolled + "%";
+
+    var header = document.getElementById("progress-container");
+    var sticky = header.offsetTop;
 
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
