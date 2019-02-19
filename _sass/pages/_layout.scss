@@ -104,7 +104,7 @@
   height: 1px;
   background-color: $white;
   position: absolute;
-  top: 400px;
+  margin-top: 400px;
   background: #e6e6e6;
   z-index: 999;
   opacity: 0.8;
@@ -120,6 +120,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    margin: 0;
   }
 
   @include media-query($medium-screen) {
