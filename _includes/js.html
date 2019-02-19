@@ -25,8 +25,6 @@
       var scrolled = (winScroll / height) * 100;
       document.getElementById("page-status").style.width = scrolled + "%";
 
-      console.log(window.pageYOffset, sticky);
-          
       if (window.pageYOffset > sticky) {
         header.classList.add("sticky");
       } else {
