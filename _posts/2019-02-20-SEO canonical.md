@@ -25,4 +25,10 @@ comments: true
 
 이 때, **canonical**을 사용하게 되면 검색엔진은 해당 **href**인 `https://micalgenus.github.io/index.html`페이지로 인식하게 되고, 결국 하나의 페이지로 인식하여 검색엔진에 긍정적인 효과를 가져오게 됩니다.
 
-제 블로그의 경우 `<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" />`로 작성되어, Jekyll가 문서를 생성할 때 해당 옵션을 추가해 주었습니다.
+제 블로그의 경우 다음과 같이 작성되어, Jekyll가 문서를 생성할 때 해당 옵션을 추가해 주었습니다.
+
+{% assign canonical = "{{ page.url | replace:'index.html','' | prepend: site.url }}" %}
+
+{% highlight html %}
+<link rel="canonical" href="{{ canonical }}" />
+{% endhighlight %}
