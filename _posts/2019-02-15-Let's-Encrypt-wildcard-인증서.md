@@ -63,7 +63,7 @@ DNS를 설정해주는 곳에 가서 두 값을 추가해 주어야 합니다.
 
 저의 경우는 `cloudflare`를 사용하기 때문에 다음과 같이 필드를 추가하였습니다.
 
-![img1]({{site.url}}/img/2019-02-15-Let-s-Encrypt-wildcard-certification/img1.png)
+![img1]({{site.url}}/img/2019-02/Let-s-Encrypt-wildcard-certification/img1.png)
 
 값을 모두 추가하였을 경우 엔터를 눌러 진행을 하면 됩니다.
 

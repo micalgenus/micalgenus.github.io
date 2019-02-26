@@ -45,7 +45,7 @@ Segment fault가 뜨지 않고 종료가 되었습니다. 그럼 BOF는 통하�
 
 이렇게 막힐때는 파일을 뜯어보아야 할 것 같습니다. IDA를 이용하여 파일을 열어보도록 하겠습니다.
 
-![img1]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img1.png)
+![img1]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img1.png)
 
 _puts를 call하는데 출력하는 문자열이 `Please enter secret flag:` 인것을 보아 이 부분이 시작되는 부분이 아닐까 생각되었습니다.
 
@@ -53,7 +53,7 @@ _puts를 call하는데 출력하는 문자열이 `Please enter secret flag:` 인
 
 그럼 조금 더 아랫부분을 살펴보도록 하겠습니다.
 
-![img2]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img2.png)
+![img2]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img2.png)
 
 여기서 왼쪽 `mov dword ptr [esp], offset s1` 부분을 보게되면 `dRGNs{tHISwASsOsIMPLE}`이라는 문자열과, s2에 저장된 문자열을 strcmp를 이용하여 비교하는 부분을 볼 수 있습니다.
 
@@ -72,7 +72,7 @@ Nope!
 
 만약 1이 아니면 무엇일까 따라가 보았습니다.
 
-![img3]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img3.png)
+![img3]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img3.png)
 
 이렇게 `leave retn`을 하여 함수를 종료하게 되었습니다.
 
@@ -102,7 +102,7 @@ jnz    short loc_8048A67
 
 오른쪽을 알아보기 전에 디버깅을 통하여 `dRGNs{tHISwASsOsIMPLE}`이 안되는데 그 부분을 따라 가도록 하겠습니다.
 
-![img4]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img4.png)
+![img4]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img4.png)
 
 strcmp를 실행하기 직전의 상황으로 s1의 데이터가 `dRGNs{tHISwASsOsIMPLE}`의 문자열이 저장된 공간이고, s2가 사용자로부터 입력받은 데이터 입니다.
 
@@ -125,11 +125,11 @@ Nope!
 
 해석해 보았을때, 소문자를 대문자로, 대문자를 소문자로 바꾸는 명령이 전부였습니다.
 
-![img5]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img5.png)
+![img5]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img5.png)
 
 그래서 한 구간씩 검사를 하게 되었는데, printf함수를 지난 후에도 출력이 되지 않았습니다. 뭔가 이상함을 느끼고 출력을 하는 부분까지 스텝을 넘겨 보았습니다.
 
-![img6]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img6.png)
+![img6]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img6.png)
 
 이렇게 putchar 함수를 이용하여 출력을 하게 되었습니다.
 
@@ -137,7 +137,7 @@ Nope!
 
 putchar 함수를 사용하여 출력하는 부분이 어떠한 함수에 속하는지 살펴 보았는데, 
 
-![img7]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img7.png)
+![img7]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img7.png)
 
 왼쪽으로 갈 경우 `Excellent Work!`를 출력하고, 오른쪽으로 갈 경우 `Nope!`를 출력하게 됩니다.
 
@@ -145,7 +145,7 @@ putchar 함수를 사용하여 출력하는 부분이 어떠한 함수에 속하
 
 그럼 위에 조건을 판별하겠습니다.
 
-![img8]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img8.png)
+![img8]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img8.png)
 
 생각했던것 보다 짧네요. 마지막 `loc_8048795:` 이 부분을 기점으로 마지막 출력을 하게 됩니다. 그러면 이 부분에서 cmp를 사용하는 [ebp+var_15]의 값을 추적해 가면서 진행을 하여야 할 것 같습니다. `loc_8048795:`의 왼쪽 위에 있는 부분을 보게되면,
 
@@ -176,7 +176,7 @@ zf를 결정하기 위해서는 cmp를 수행해야 하는데, `edx`와 `eax`의
 
 그럼 break point를 cmp부분에 주고 값을 비교해 보겠습니다.
 
-![img9]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img9.png) 
+![img9]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img9.png) 
 
 이러한 순서로 값을 비교하면 됩니다. ecx(문자 위치)에 따라서, `0x64(d)`, `0x52(R)`, `0x47(G)`, `0x4e(N)`, `0x73(s)`, `0x7b({)`까지는 일치하게 됩니다.
 
@@ -184,7 +184,7 @@ zf를 결정하기 위해서는 cmp를 수행해야 하는데, `edx`와 `eax`의
 
 그럼 t를 n으로 바꾸고 해주어야 합니다.
 
-![img10]({{site.url}}/img/2015-05-13-Confidence-CTF-Teaser-2015-So-easy-100-reverse/img10.png) 
+![img10]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img10.png) 
 
 n으로 입력을 해주게 되었는데, 값이 `0x74`에서 `0x4e`로 바뀌게 되었습니다. 이로써 입력한 값으로 변경됨을 알았습니다.
 
