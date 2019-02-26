@@ -3,12 +3,7 @@
  */
 
 // Google font import
-@font-face {
-  font-family: "BMJUA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:600, 400, 400italic|Roboto+Mono");
 
 // Custom variables
@@ -27,7 +22,7 @@ $border-width: 0.0625rem !default;
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: "BMJUA", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif: "Noto Sans KR", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif: Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace: "Roboto Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
