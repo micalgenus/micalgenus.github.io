@@ -29,7 +29,7 @@ yarn add --dev react-snap
 }
 {% endhighlight %}
 
-마지막으로 `src/index.js`에서 `ReactDOM.render(<App />, document.getElementById('root'));`를 변경해 줍니다.
+마지막으로 `src/index.js`에서 **ReactDOM.render(<App />, document.getElementById('root'));**를 변경해 줍니다.
 
 {% highlight javascript linenos %}
 const rootElement = document.getElementById('root');
