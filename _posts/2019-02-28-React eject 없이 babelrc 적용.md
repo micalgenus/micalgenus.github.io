@@ -80,7 +80,7 @@ CRA으로 프로젝트를 생성한 뒤, .babelrc파일을 생성하여 설정�
 
 그 후 `config-overrides.js`에 설정을 재정의 해줍니다. 이 설정을 위해 [customize-cra](https://github.com/arackaf/customize-cra)모듈을 사용하면 편리합니다.
 
-babelrc파일을 사용하기 위해서는 다음과 같이 추가해주면 됩니다.
+**babelrc**(.babelrc, .babelrc.js)파일을 사용하기 위해서는 `config-overrides.js`에 다음과 같이 추가해주면 됩니다.
 
 {% highlight javascript %}
 const { override, useBabelRc } = require("customize-cra");
