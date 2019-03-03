@@ -38,16 +38,16 @@ $(document).ready(function() {
       .removeClass("scroll-position-top")
       .removeClass("scroll-position-bottom");
 
-    if (scrolled === 0) $("#scroll-button").addClass("scroll-position-top");
-    else if (scrolled === 100) $("#scroll-button").addClass("scroll-position-bottom");
+    if (scrolled < 5) $("#scroll-button").addClass("scroll-position-top");
+    else if (scrolled > 95) $("#scroll-button").addClass("scroll-position-bottom");
   }
 
   $("#to-top").click(() => {
     $(".post-listing").animate({ scrollTop: 0 }, "slow");
-    $("html").animate({ scrollTop: 0 }, "slow");
+    $("html, body").animate({ scrollTop: 0 }, "slow");
   });
   $("#to-bottom").click(() => {
     $(".post-listing").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
-    $("html").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
+    $("html, body").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
   });
 });
