@@ -2,6 +2,7 @@
 layout: post
 title: React snapshot
 categories: [React]
+tags: [React, build]
 comments: true
 ---
 

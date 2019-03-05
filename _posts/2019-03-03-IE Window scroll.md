@@ -2,6 +2,7 @@
 layout: post
 title: IE Window scroll
 categories: [JavaScript]
+tags: [JavaScript, IE]
 comments: true
 ---
 

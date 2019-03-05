@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Docker Nginx Letsencrypt SSL 인증서 적용
-slug: setup letsencryt ssl in nginx on docker
 categories: [Server]
+tags: [Docker, nginx, letsencryt]
 comments: true
 ---
 

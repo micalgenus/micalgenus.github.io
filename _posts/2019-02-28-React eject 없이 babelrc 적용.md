@@ -2,6 +2,7 @@
 layout: post
 title: React eject 없이 babelrc 적용
 categories: [React]
+tags: [React, babel]
 comments: true
 ---
 

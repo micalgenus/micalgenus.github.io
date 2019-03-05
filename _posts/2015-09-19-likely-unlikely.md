@@ -2,6 +2,7 @@
 layout: post
 title: likely / unlikely
 categories: [Kernel]
+tags: [Kernel, GCC]
 comments: true
 ---
 

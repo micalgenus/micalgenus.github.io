@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Let's Encrypt wildcard 인증서
-slug: Let's Encrypt wildcard certification
 categories: [Server]
+tags: [letsencryt]
 comments: true
 ---
 

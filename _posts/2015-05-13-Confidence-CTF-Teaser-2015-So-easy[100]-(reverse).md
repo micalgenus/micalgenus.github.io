@@ -2,6 +2,7 @@
 layout: post
 title: Confidence CTF Teaser 2015 - So easy[100] (reverse)
 categories: [CTF]
+tags: [Confidence CTF Teaser 2015, Reversing]
 comments: true
 ---
 

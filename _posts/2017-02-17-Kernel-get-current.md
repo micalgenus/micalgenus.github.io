@@ -2,6 +2,7 @@
 layout: post
 title: Kernel get_current
 categories: [Kernel]
+tags: [Kernel]
 comments: true
 ---
 

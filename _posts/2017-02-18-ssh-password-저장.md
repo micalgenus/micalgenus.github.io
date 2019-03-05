@@ -3,6 +3,7 @@ layout: post
 title: ssh password 저장
 slug: save-ssh-password
 categories: [Server]
+tags: [SSH]
 comments: true
 ---
 

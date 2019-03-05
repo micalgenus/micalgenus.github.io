@@ -2,6 +2,7 @@
 layout: post
 title: Defcon Qualifier CTF 2015 - mathwhiz[1] (babys-first)
 categories: [CTF]
+tags: [Defcon Qualifier CTF 2015]
 comments: true
 ---
 

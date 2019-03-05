@@ -2,6 +2,7 @@
 layout: post
 title: Fedora Core 3 repositories
 categories: [Server]
+tags: [Fedora Core 3, yum]
 comments: true
 ---
 

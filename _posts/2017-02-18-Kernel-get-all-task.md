@@ -2,6 +2,7 @@
 layout: post
 title: Kernel get all task
 categories: [Kernel]
+tags: [Kernel]
 comments: true
 ---
 

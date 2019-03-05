@@ -2,6 +2,7 @@
 layout: post
 title: SEO canonical
 categories: [Web]
+tags: [HTML, SEO]
 comments: true
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: tar upgrade
 categories: [Server]
+tags: [Linux upgrade, tar]
 comments: true
 ---
 

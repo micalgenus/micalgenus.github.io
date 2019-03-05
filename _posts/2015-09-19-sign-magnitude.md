@@ -2,6 +2,7 @@
 layout: post
 title: sign-magnitude
 categories: [Computer Structure]
+tags: [CS]
 comments: true
 ---
 

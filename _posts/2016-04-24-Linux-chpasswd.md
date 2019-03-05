@@ -2,6 +2,7 @@
 layout: post
 title: Linux chpasswd
 categories: [Server]
+tags: [Ubuntu, passwd]
 comments: true
 ---
 

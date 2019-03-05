@@ -2,6 +2,7 @@
 layout: post
 title: Kernel kuid_t
 categories: [Kernel]
+tags: [Kernel]
 comments: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Linux shadow파일
-slug: Linux shadow file
 categories: [Server]
+tags: [Linux, shadow]
 comments: true
 ---
 

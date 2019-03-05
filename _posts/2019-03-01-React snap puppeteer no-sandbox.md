@@ -2,6 +2,7 @@
 layout: post
 title: React snap puppeteer no-sandbox
 categories: [React]
+tags: [React, build]
 comments: true
 ---
 

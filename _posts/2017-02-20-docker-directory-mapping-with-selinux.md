@@ -2,6 +2,7 @@
 layout: post
 title: docker directory mapping with selinux
 categories: [Server]
+tags: [Docker]
 comments: true
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: XenServer update
 categories: [Server]
+tags: [XenServer]
 comments: true
 ---
 

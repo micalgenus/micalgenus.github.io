@@ -2,6 +2,7 @@
 layout: post
 title: Linux Time
 categories: [Server]
+tags: [Linux, date]
 comments: true
 ---
 

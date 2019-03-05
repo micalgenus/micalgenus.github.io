@@ -2,6 +2,7 @@
 layout: post
 title: Safari zindex 문제
 categories: [Web]
+tags: [CSS, Safari, zindex]
 comments: true
 ---
 

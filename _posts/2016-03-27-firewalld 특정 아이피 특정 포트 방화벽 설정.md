@@ -1,8 +1,8 @@
 ---
 layout: post
 title: firewalld 특정 아이피 특정 포트 방화벽 설정
-slug: firewalld allow port for specific ip
 categories: [Server]
+tags: [firewalld]
 comments: true
 ---
 

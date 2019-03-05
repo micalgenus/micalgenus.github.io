@@ -2,6 +2,7 @@
 layout: post
 title: task_uid
 categories: [Kernel]
+tags: [Kernel]
 comments: true
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: Firewalld zone 변경
 slug: change firewalld default zone
 categories: [Server]
+tags: [firewalld]
 comments: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Docker nginx 설치
-slug: install nginx in docker
 categories: [Server]
+tags: [Docker, nginx]
 comments: true
 ---
 

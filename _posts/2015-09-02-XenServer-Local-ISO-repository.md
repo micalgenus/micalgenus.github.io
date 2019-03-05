@@ -2,6 +2,7 @@
 layout: post
 title: XenServer Local ISO repository
 categories: [Server]
+tags: [XenServer, LVM]
 comments: true
 ---
 

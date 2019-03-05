@@ -2,6 +2,7 @@
 layout: post
 title: Data segment
 categories: [Data Structure]
+tags: [CS]
 comments: true
 ---
 
