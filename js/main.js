@@ -1,16 +1,16 @@
 $(document).ready(function() {
-  window.onresize = () => {
+  window.onresize = function() {
     onScroll(document.getElementById("post-listing").scrollTop, document.getElementById("post-listing").scrollHeight);
   };
 
-  window.onscroll = () => {
+  window.onscroll = function() {
     onScroll(
       document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset,
       document.getElementById("post-listing").scrollHeight + sticky
     );
   };
 
-  document.getElementById("post-listing").onscroll = () => {
+  document.getElementById("post-listing").onscroll = function() {
     onScroll(document.getElementById("post-listing").scrollTop, document.getElementById("post-listing").scrollHeight);
   };
 
@@ -42,11 +42,11 @@ $(document).ready(function() {
     else if (scrolled > 95) $("#scroll-button").addClass("scroll-position-bottom");
   }
 
-  $("#to-top").click(() => {
+  $("#to-top").click(function() {
     $(".post-listing").animate({ scrollTop: 0 }, "slow");
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
-  $("#to-bottom").click(() => {
+  $("#to-bottom").click(function() {
     $(".post-listing").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
     $("html, body").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
   });
