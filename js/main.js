@@ -50,4 +50,11 @@ $(document).ready(function() {
     $(".post-listing").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
     $("html, body").animate({ scrollTop: document.getElementById("post-listing").scrollHeight + sticky }, "slow");
   });
+
+  // If the link exists in an external site, add the target _blank attribute.
+  $(document.links)
+    .filter(function() {
+      return this.hostname != window.location.hostname;
+    })
+    .attr("target", "_blank");
 });
