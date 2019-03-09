@@ -11,6 +11,10 @@ ul.tag-cloud {
     a.post-tag {
       border-radius: 0.2em;
       color: #000;
+
+      &:hover {
+        color: $main-color;
+      }
     }
   }
 }
