@@ -2,6 +2,7 @@
 layout: post
 title: CSS scrolling animation
 categories: [Web]
+tags: [CSS]
 comments: true
 ---
 
