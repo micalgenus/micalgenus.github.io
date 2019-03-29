@@ -12,6 +12,8 @@ Next.js를 사용하면서 브라우저에서 **.env** 설정을 받아들이지
 
 {% highlight javascript %}
 module.exports = withSass({ publicRuntimeConfig: { test: 'test' } })
+or
+module.exports = { publicRuntimeConfig: { test: 'test' } }
 {% endhighlight %}
 
 여기서 `.env`설정에 관한 부분은 추가적으로 해주어야 하기 때문에 [node-runtime-config](https://www.npmjs.com/package/next-runtime-dotenv)를 사용하여 편리하게 구성할 수 있습니다.
