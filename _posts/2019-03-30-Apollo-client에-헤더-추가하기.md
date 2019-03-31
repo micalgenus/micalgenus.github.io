@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nextjs publicRuntimeConfig 적용
+title: Apollo client에 헤더 추가하기
 categories: [React]
 tags: [React, GraphQL]
 comments: true
