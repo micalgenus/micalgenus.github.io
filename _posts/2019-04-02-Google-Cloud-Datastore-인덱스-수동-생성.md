@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Google Cloud Datastore 인덱스 생성하기
+title: Google Cloud Datastore 인덱스 수동 생성
 categories: [Cloud]
 tags: [GCP, Datastore]
 comments: true
