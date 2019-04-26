@@ -31,3 +31,9 @@ mocha의 coverage를 사용하기 위해서 [nyc](https://istanbul.js.org/)라�
 {% endhighlight %}
 
 다음과 같은 설정처럼 사용할 수 있다. `extension`옵션을 통하여 typescript파일을 허용하면 mocha를 이용하여 `coverage`를 측정할 수 있다.
+
+그 후 다음과 같은 명령어를 사용하면 coverage가 측정된다.
+
+``
+$ nyc mocha -r ./mocha.init.js ./src/tests/**/*.spec.ts
+``
