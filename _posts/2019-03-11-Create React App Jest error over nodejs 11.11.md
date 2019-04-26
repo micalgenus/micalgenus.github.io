@@ -72,3 +72,9 @@ Object.defineProperty(process, Symbol.toStringTag, {
 하지만, 현재 **create-react-app**의 경우는 **jest**를 `23.6.0`을 사용하기 때문에 문제가 해결되지 않고 있다. 이를 해결할 [PR](https://github.com/facebook/create-react-app/pull/6278)이 있지만 아직 받아들여지지 않았다.
 
 **create-react-app**을 사용하지 않을 경우에는, **jest**의 버전을 `v24.2.0-alpha.0`이후 버전으로 업데이트하면 문제를 해결할 수 있다.
+
+
+---
+### 2019.04.26 추가
+
+Nodejs를 11.12버전에서 다음 문제를 해결하였다. **readonly**속성이였던 `Symbol.toStringTag`멤버가 **writeable**하게 변경되면서 CRA버전에 상관없이 문제가 발생하지 않는다.
