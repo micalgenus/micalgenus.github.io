@@ -34,6 +34,6 @@ mocha의 coverage를 사용하기 위해서 [nyc](https://istanbul.js.org/)라�
 
 그 후 다음과 같은 명령어를 사용하면 coverage가 측정된다.
 
-``
+{% highlight BASH %}
 $ nyc mocha -r ./mocha.init.js ./src/tests/**/*.spec.ts
-``
+{% endhighlight %}
