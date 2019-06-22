@@ -1,0 +1,12 @@
+{
+  "presets": [["@babel/env", { "targets": { "node": "8" } }], ["babel-preset-gatsby", { "targets": { "browsers": [">0.25%", "not dead"] } }]],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": { "@": "./src" }
+      }
+    ]
+  ]
+}
