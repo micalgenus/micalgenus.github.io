@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Avatar from 'gatsby-plugin-github-avatar';
+import Avatar from '@micalgenus/gatsby-plugin-github-avatar';
 
 export default class Sidebar extends Component {
   render() {
@@ -10,8 +10,7 @@ export default class Sidebar extends Component {
       <div className="cover-card table-cell table-middle">
         {/* {% if author.avatar %} */}
         <a href="/">
-          <Avatar />
-          <img src="{{ site.url }}/img/{{ author.avatar }}" alt="" className="avatar" />
+          <Avatar className="avatar" />
         </a>
         {/* {% endif %} */}
         {/* <a href="{{ site.url }}/" class="author_name">{{ author.name }}</a> */}

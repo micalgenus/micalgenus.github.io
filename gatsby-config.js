@@ -42,7 +42,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-github-avatar`,
+      resolve: `@micalgenus/gatsby-plugin-github-avatar`,
       options: {
         username: `micalgenus`,
       },
