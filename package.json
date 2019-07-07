@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "GyeongSu Han <micalgenus@gmail.com>",
   "dependencies": {
-    "@micalgenus/gatsby-plugin-github-avatar": "../gatsby-plugin-github-avatar/",
+    "@micalgenus/gatsby-plugin-github-avatar": "^0.0.5",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-disqus": "^1.0.3",
