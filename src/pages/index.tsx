@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Layout from '@/containers/layout';
 import SEO from '@/components/seo';
-import Disqus from 'gatsby-plugin-disqus';
+// import Disqus from 'gatsby-plugin-disqus';
 
 const IndexPage = () => (
   <Layout>
@@ -11,7 +11,7 @@ const IndexPage = () => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Link to="/page2/">Go to page 2</Link>
     {/*% for post in site.posts limit: 5 %*/}
     <section className="post">
       <header className="post-header">
@@ -61,7 +61,7 @@ const IndexPage = () => (
           alt="{{ post.title | escape }} feature image"
         />
 
-        <Disqus identifier={'100'} title={'micalgenus'} url={`https://micalgenus.github.io/${location.pathname}`} />
+        {/* <Disqus identifier={'100'} title={'micalgenus'} url={`https://micalgenus.github.io/${location.pathname}`} /> */}
 
         {/*% if post.image.credit %*/}
         {/* <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span> */}

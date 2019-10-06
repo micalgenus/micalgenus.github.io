@@ -9,19 +9,20 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Sidebar from './components/sidebar';
-import Footer from './components/footer';
+import Header from './components/header';
+// import Sidebar from './components/sidebar';
+// import Footer from './components/footer';
 
 import '@/css/font-awesome.css';
 import '@/scss/layout.scss';
 
+import './css/layout.css';
+
 const query = graphql`
   query {
-    backgroundImage: file(relativePath: { eq: "background.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+    site {
+      siteMetadata {
+        title
       }
     }
   }
@@ -32,13 +33,19 @@ export default class Layout extends Component {
     children: propTypes.node.isRequired,
   };
 
-  render = () => <StaticQuery query={query} render={this.graphQLRender} />;
-  graphQLRender = (data: any) => {
-    const { children } = this.props;
-
+  render() {
     return (
-      <>
-        <div className="row">
+      <StaticQuery
+        query={query}
+        render={data => {
+          const { children } = this.props;
+          console.log(data);
+
+          return (
+            <>
+              <Header siteTitle={data.site.siteMetadata.title} />
+              <main>{children}</main>
+              {/* <div className="row">
           <div className="col s12 m3">
             <div className="table cover">
               <div className="background-cover" style={{ backgroundImage: `url(${data.backgroundImage.childImageSharp.fluid.src})` }}>
@@ -66,9 +73,12 @@ export default class Layout extends Component {
           <a id="to-bottom">
             <i className="fa fa-angle-down" />
           </a>
-        </div>
-        {/* {% include js.html %} */}
-      </>
+        </div> */}
+              {/* {% include js.html %} */}
+            </>
+          );
+        }}
+      />
     );
-  };
+  }
 }

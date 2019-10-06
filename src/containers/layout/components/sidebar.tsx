@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
 
 import Avatar from '@micalgenus/gatsby-plugin-github-avatar';
 
@@ -19,7 +20,7 @@ export default class Sidebar extends Component {
         <nav className="nav">
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="{{ site.url }}/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             {/* {% for page in site.pages %} {% if page.title %} */}
             <li className="nav-item">{/* <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a> */}</li>
