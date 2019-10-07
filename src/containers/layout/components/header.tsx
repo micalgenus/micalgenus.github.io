@@ -11,11 +11,19 @@ export default class Header extends Component<Props> {
 
     return (
       <header>
-        <div>
-          <h1>
+        <div className="header-menu">
+        <nav>
+          <ul>
+            <li className="selected">
+              <Link to="/">home</Link>
+            </li>
+          </ul>
+          <ul className="icons">
             <Link to="/">{siteTitle}</Link>
-          </h1>
+          </ul>
+        </nav>
         </div>
+        <div>test</div>
       </header>
     );
   }

@@ -1,2 +1,39 @@
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  .header-menu {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #f1f1f1;
+    width: 100%;
+    background: #fff;
+    & > nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: $layout-max-width;
+      ul {
+        padding: 0;
+
+        li {
+          margin: 0;
+          list-style-type: none;
+          a {
+            padding: 0 1em;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+
+          &.selected {
+            a {
+              color: $layout-theme-color;
+            }
+          }
+        }
+      }
+    }
+  }
 }

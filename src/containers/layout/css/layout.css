@@ -1,2 +1,4 @@
+@import './layout.variable.css';
 @import './layout.global.css';
+
 @import './layout.header.css';

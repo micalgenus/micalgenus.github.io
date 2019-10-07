@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  background: #fcfcfc;
 }
 
 h1,
@@ -10,4 +11,20 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+::selection {
+  background: $layout-theme-color;
+  color: #fff;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: $layout-theme-color;
+  color: #fff;
+  text-shadow: none;
+}
+::-webkit-selection {
+  background: $layout-theme-color;
+  color: #fff;
+  text-shadow: none;
 }
