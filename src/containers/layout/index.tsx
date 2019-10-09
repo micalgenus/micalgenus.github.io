@@ -28,7 +28,7 @@ const query = graphql`
   }
 `;
 
-export default class Layout extends Component {
+export class Layout extends Component {
   static propTypes = {
     children: propTypes.node.isRequired,
   };

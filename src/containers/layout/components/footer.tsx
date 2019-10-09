@@ -4,9 +4,9 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        &copy; {new Date().getFullYear()} {/*{ site.owner.name }*/ 'Micalgenus'}. Powered by{' '}
-        <a href="https://www.gatsbyjs.org" target="_blank">
-          Gatsby
+        &copy;{' '}
+        <a href="https://github.com/micalgenus" target="_blank">
+          Micalgenus
         </a>
       </footer>
     );
