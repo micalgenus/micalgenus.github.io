@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, PageRendererProps } from 'gatsby';
 
 import Header from './components/header';
 // import Sidebar from './components/sidebar';
@@ -28,7 +28,7 @@ const query = graphql`
   }
 `;
 
-export class Layout extends Component {
+export class Layout extends Component<Partial<PageRendererProps>> {
   static propTypes = {
     children: propTypes.node.isRequired,
   };

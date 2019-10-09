@@ -3,6 +3,7 @@ module.exports = {
     title: `GyeongSu Han's Github Pages`,
     description: `Full-Stack developer using node.js`,
     author: `@micalgenus`,
+    siteUrl: 'https://micalgenus.github.io/',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +12,50 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/posts`,
+        name: `articles`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 740,
+              linkImagesToOriginal: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {
+              margin: 36,
+              scrollOffset: 0,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: '%',
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-emoji`,
+        ],
       },
     },
     `gatsby-transformer-sharp`,
