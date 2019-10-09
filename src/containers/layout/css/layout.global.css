@@ -1,3 +1,13 @@
+#___gatsby {
+  & > div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -27,4 +37,11 @@ h6 {
   background: $layout-theme-color;
   color: #fff;
   text-shadow: none;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+  color: $layout-highlight-color;
 }
