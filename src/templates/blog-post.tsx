@@ -25,8 +25,21 @@ interface Props extends PageRendererProps {
         siteUrl: string;
       };
     };
+    markdownRemark: {
+      id: string;
+      html: string;
+      frontmatter: {
+        title: string;
+        date: string;
+      };
+    };
   };
-  pageContext: any;
+  pageContext: {
+    isCreatedByStatefulCreatePages: boolean;
+    comments: boolean;
+    previous: any;
+    next: any;
+  };
 }
 
 export default ({ data, pageContext, location }: Props) => {
@@ -42,7 +55,8 @@ export default ({ data, pageContext, location }: Props) => {
 
   return (
     <Layout location={location}>
-      <div>test</div>
+      <div>{JSON.stringify(data)}</div>
+      <div>{JSON.stringify(pageContext)}</div>
       {/* <Head title={post.frontmatter.title} description={post.excerpt} />
       <PostTitle title={post.frontmatter.title} />
       <PostContainer html={post.html} />
@@ -58,29 +72,22 @@ export default ({ data, pageContext, location }: Props) => {
 };
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostByPath($path: String!) {
     site {
       siteMetadata {
         title
         author
         siteUrl
-        # comment {
-        #   disqusShortName
-        #   utterances
-        # }
-        # sponsor {
-        #   buyMeACoffeeId
-        # }
       }
     }
-    # markdownRemark(fields: { slug: { eq: $slug } }) {
-    #   id
-    #   excerpt(pruneLength: 280)
-    #   html
-    #   frontmatter {
-    #     title
-    #     date(formatString: "MMMM DD, YYYY")
-    #   }
-    # }
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      # id
+      # excerpt(pruneLength: 280)
+      html
+      frontmatter {
+        title
+        date(fromNow: true)
+      }
+    }
   }
 `;

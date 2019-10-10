@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Confidence CTF Teaser 2015 - So easy[100] (reverse)
 categories: [CTF]
 tags: [Confidence CTF Teaser 2015, Reversing]
+path: '/articles/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-(reverse)'
+date: '2015-05-13T00:00:00.000Z'
 comments: true
 ---
 
@@ -10,35 +11,35 @@ comments: true
 
 우선 이 문제를 받고 어떠한 파일인지 확인을 해보았습니다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ls -l re_100_final
 -rwxr-xr-x 1 root root 9756 2015-04-24 21:10 re_100_final
 root@ubuntu:~# file re_100_final
 re_100_final: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, stripped
-{% endhighlight %}
+```
 
 문제 파일을 보게되면 `32bit` 리눅스 Intel계열 에서 실행이 가능합니다.
 
 이제 실행을 해보도록 하겠습니다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ./re_100_final
 Please enter secret flag:
 1234
 Nope!
-{% endhighlight %}
+```
 
 1234를 입력해 보았는데, 이렇게 뜹니다. 그럼 오버플로우를 일으켜 보겠습니다.
 
-{% highlight bash %}
-root@ubuntu:~# (python -c 'print "A"*10000';cat) | ./re_100_final
+```bash
+root@ubuntu:~# (python -c 'print "A"\*10000';cat) | ./re_100_final
 Please enter secret flag:
 Nope!
 close failed in file object destructor
 Error in sys.excepthook:
 
 Original excetion was:
-{% endhighlight %}
+```
 
 Segment fault가 뜨지 않고 종료가 되었습니다. 그럼 BOF는 통하지 않는듯 합니다.
 
@@ -48,7 +49,7 @@ Segment fault가 뜨지 않고 종료가 되었습니다. 그럼 BOF는 통하�
 
 ![img1]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img1.png)
 
-_puts를 call하는데 출력하는 문자열이 `Please enter secret flag:` 인것을 보아 이 부분이 시작되는 부분이 아닐까 생각되었습니다.
+\_puts를 call하는데 출력하는 문자열이 `Please enter secret flag:` 인것을 보아 이 부분이 시작되는 부분이 아닐까 생각되었습니다.
 
 그래서 이 함수를 분석해 보았습니다. 시작 부분에서 출력을 한 후, scanf를 이용하여 `%31s` 서식문자를 통해 입력을 받습니다. 이 서식문자를 통하여 입력 글자수를 제한하고 있네요.
 
@@ -60,12 +61,12 @@ _puts를 call하는데 출력하는 문자열이 `Please enter secret flag:` 인
 
 strcmp를 이용하여 비교하는 부분을 보고, 해당 문자열을 직접 입력해 보았습니다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ./re_100_final
 Please enter secret flag:
 dRGNs{tHISwASsOsIMPLE}
 Nope!
-{% endhighlight %}
+```
 
 하지만 역시 이렇게 쉬운 문제일 이유가 없습니다. 답이 아니므로, 이후 부분을 분석해 보도록 하겠습니다.
 
@@ -115,12 +116,12 @@ strcmp를 실행하기 직전의 상황으로 s1의 데이터가 `dRGNs{tHISwASs
 
 그럼 이 특성을 이용하여 `DrgnS{ThisWasSoSimple}`을 입력해 보도록 하겠습니다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ./re_100_final
 Please enter secret flag:
 DrgnS{ThisWasSoSimple}
 Nope!
-{% endhighlight %}
+```
 
 아직도 정답이 아니라고 나오네요. 그럼 오른쪽 부분을 마저 해석해 보았습니다.
 
@@ -136,7 +137,7 @@ Nope!
 
 우선 printf함수를 지나가게 되어도 출력이 되지 않았다는 점을 생각하여 `putchar` 함수 주변에서 어떤 행위를 하지 않을까 생각을 가지게 되었습니다.
 
-putchar 함수를 사용하여 출력하는 부분이 어떠한 함수에 속하는지 살펴 보았는데, 
+putchar 함수를 사용하여 출력하는 부분이 어떠한 함수에 속하는지 살펴 보았는데,
 
 ![img7]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img7.png)
 
@@ -159,6 +160,7 @@ mov    [ebp+var_15], 0
 그러므로 오른쪽인 `Nope!`을 출력하게 됩니다. 그러면 왼쪽을 지나가지 않도록 만들어야 되겠습니다.
 
 왼쪽이 지나가지 않으려면 `loc_804875F:`의 마지막에 jz가 **모두 참**이여야 합니다.
+
 ```
 jz    short loc_804878B
 ```
@@ -177,7 +179,7 @@ zf를 결정하기 위해서는 cmp를 수행해야 하는데, `edx`와 `eax`의
 
 그럼 break point를 cmp부분에 주고 값을 비교해 보겠습니다.
 
-![img9]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img9.png) 
+![img9]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img9.png)
 
 이러한 순서로 값을 비교하면 됩니다. ecx(문자 위치)에 따라서, `0x64(d)`, `0x52(R)`, `0x47(G)`, `0x4e(N)`, `0x73(s)`, `0x7b({)`까지는 일치하게 됩니다.
 
@@ -185,7 +187,7 @@ zf를 결정하기 위해서는 cmp를 수행해야 하는데, `edx`와 `eax`의
 
 그럼 t를 n으로 바꾸고 해주어야 합니다.
 
-![img10]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img10.png) 
+![img10]({{site.url}}/img/2015-05/Confidence-CTF-Teaser-2015-So-easy-100-reverse/img10.png)
 
 n으로 입력을 해주게 되었는데, 값이 `0x74`에서 `0x4e`로 바뀌게 되었습니다. 이로써 입력한 값으로 변경됨을 알았습니다.
 
@@ -195,9 +197,9 @@ n으로 입력을 해주게 되었는데, 값이 `0x74`에서 `0x4e`로 바뀌�
 
 이러한 방법으로 한문자씩 변경을 해주게 되면 최종적인 값을 추출할 수 있습니다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ./re_100_final
 Please enter secret flag:
 DrgnS{NotEvenWarmedUp}
 Excellent Work!
-{% endhighlight %}
+```
