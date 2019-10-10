@@ -8,6 +8,10 @@ export default class Footer extends Component {
         <a href="https://github.com/micalgenus" target="_blank">
           Micalgenus
         </a>
+        , Made with{' '}
+        <a href="https://www.gatsbyjs.org/" target="_blank">
+          GatsbyJS
+        </a>
       </footer>
     );
   }
