@@ -13,16 +13,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`${__dirname}/src/templates/blog-post.tsx`);
   const result = await graphql(`
     {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             frontmatter {
               path
+              title
               comments
             }
           }
@@ -46,7 +42,6 @@ exports.createPages = async ({ graphql, actions }) => {
       path: post.node.frontmatter.path,
       component: blogPost,
       context: {
-        siteUrl: result.data.site.siteMetadata.siteUrl,
         path: post.node.frontmatter.path,
         comments: post.node.frontmatter.comments,
         previous,

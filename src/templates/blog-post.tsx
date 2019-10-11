@@ -1,8 +1,17 @@
 import React from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import { Layout } from '@/containers/layout';
-
 import Disqus from 'gatsby-plugin-disqus';
+
+import { Layout } from '@/containers/layout';
+import { PostNavigator } from '@/components/post-navigator';
+
+export interface PageContext {
+  isCreatedByStatefulCreatePages: boolean;
+  siteUrl: string;
+  comments: boolean;
+  previous: any;
+  next: any;
+}
 
 interface Props extends PageRendererProps {
   data: {
@@ -22,13 +31,7 @@ interface Props extends PageRendererProps {
       };
     };
   };
-  pageContext: {
-    isCreatedByStatefulCreatePages: boolean;
-    siteUrl: string;
-    comments: boolean;
-    previous: any;
-    next: any;
-  };
+  pageContext: PageContext;
 }
 
 export default ({ data, pageContext, location }: Props) => {
@@ -38,22 +41,21 @@ export default ({ data, pageContext, location }: Props) => {
   // }, []);
 
   const post = data.markdownRemark;
-  // const metaData = data.site.siteMetadata;
-  // const { title, comment, siteUrl, author, sponsor } = metaData;
-  // const { disqusShortName, utterances } = comment;
+  const metaData = data.site.siteMetadata;
+  const { siteUrl } = metaData;
+
   let disqusConfig = {
-    url: `${pageContext.siteUrl + location.pathname}`,
+    url: `${siteUrl + location.pathname}`,
     identifier: post.id,
     title: post.frontmatter.title,
   };
-
-  console.log(disqusConfig);
 
   return (
     <Layout>
       <h2>{post.frontmatter.title}</h2>
       <p>{post.frontmatter.date}</p>
       <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      <PostNavigator pageContext={pageContext} />
       {pageContext.comments && <Disqus config={disqusConfig} />}
     </Layout>
   );
@@ -69,7 +71,7 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      # id
+      id
       # excerpt(pruneLength: 280)
       html
       frontmatter {
