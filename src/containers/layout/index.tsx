@@ -14,8 +14,6 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 import '@/css/font-awesome.css';
-import '@/scss/layout.scss';
-
 import './css/layout.css';
 
 const query = graphql`

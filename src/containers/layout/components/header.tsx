@@ -38,17 +38,17 @@ export default class Header extends Component<Props> {
                 </a>
               </li>
               <li>
-                <a href="http://linkedin.com/in/gyeong-su-han">
+                <a href="http://linkedin.com/in/gyeong-su-han" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>
               </li>
               <li>
-                <a href="http://github.com/micalgenus">
+                <a href="http://github.com/micalgenus" target="_blank">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </li>
               <li>
-                <a href="https://portfolio.micalgenus.com/">
+                <a href="https://portfolio.micalgenus.com/" target="_blank">
                   <FontAwesomeIcon icon={faPortrait} />
                 </a>
               </li>

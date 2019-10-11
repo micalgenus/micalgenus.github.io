@@ -1,3 +1,6 @@
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600, 400, 400italic|Roboto+Mono');
+
 #___gatsby {
   & > div {
     display: flex;
@@ -9,9 +12,10 @@
 }
 
 body {
+  font-family: 'Noto Sans KR', sans-serif;
   padding: 0;
   margin: 0;
-  background: #fcfcfc;
+  background: #fefefe;
 }
 
 h1,
@@ -44,4 +48,8 @@ a:visited,
 a:active,
 a:hover {
   color: $layout-highlight-color;
+}
+
+a {
+  text-decoration: none;
 }

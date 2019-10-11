@@ -2,20 +2,8 @@ import React from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
 import { Layout } from '@/containers/layout';
 
-// import * as Elements from '../components/elements';
-// import { Layout } from '../layout';
-// import { Head } from '../components/head';
-// import { PostTitle } from '../components/post-title';
-// import { PostContainer } from '../components/post-container';
-// import { SocialShare } from '../components/social-share';
-// import { SponsorButton } from '../components/sponsor-button';
-// import { Bio } from '../components/bio';
-// import { PostNavigator } from '../components/post-navigator';
-// import { Disqus } from '../components/disqus';
-// import { Utterences } from '../components/utterances';
-// import * as ScrollManager from '../utils/scroll';
+import Disqus from 'gatsby-plugin-disqus';
 
-// import '../styles/code.scss';
 interface Props extends PageRendererProps {
   data: {
     site: {
@@ -36,6 +24,7 @@ interface Props extends PageRendererProps {
   };
   pageContext: {
     isCreatedByStatefulCreatePages: boolean;
+    siteUrl: string;
     comments: boolean;
     previous: any;
     next: any;
@@ -48,25 +37,24 @@ export default ({ data, pageContext, location }: Props) => {
   //   return () => ScrollManager.destroy();
   // }, []);
 
-  // const post = data.markdownRemark;
+  const post = data.markdownRemark;
   // const metaData = data.site.siteMetadata;
   // const { title, comment, siteUrl, author, sponsor } = metaData;
   // const { disqusShortName, utterances } = comment;
+  let disqusConfig = {
+    url: `${pageContext.siteUrl + location.pathname}`,
+    identifier: post.id,
+    title: post.frontmatter.title,
+  };
+
+  console.log(disqusConfig);
 
   return (
-    <Layout location={location}>
-      <div>{JSON.stringify(data)}</div>
-      <div>{JSON.stringify(pageContext)}</div>
-      {/* <Head title={post.frontmatter.title} description={post.excerpt} />
-      <PostTitle title={post.frontmatter.title} />
-      <PostContainer html={post.html} />
-      <SocialShare title={post.frontmatter.title} author={author} />
-      {!!sponsor.buyMeACoffeeId && <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />}
-      <Elements.Hr />
-      <Bio />
-      <PostNavigator pageContext={pageContext} />
-      {!!disqusShortName && <Disqus post={post} shortName={disqusShortName} siteUrl={siteUrl} slug={pageContext.slug} />}
-      {!!utterances && <Utterences repo={utterances} />} */}
+    <Layout>
+      <h2>{post.frontmatter.title}</h2>
+      <p>{post.frontmatter.date}</p>
+      <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      {pageContext.comments && <Disqus config={disqusConfig} />}
     </Layout>
   );
 };
@@ -86,7 +74,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(fromNow: true)
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }

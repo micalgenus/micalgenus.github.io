@@ -2,4 +2,7 @@
 @import './layout.global.css';
 
 @import './layout.header.css';
+@import './layout.content.css';
 @import './layout.footer.css';
+
+@import './layout.github.css';
