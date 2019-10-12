@@ -19,7 +19,7 @@ React snap을 사용할 때, 리눅스에서 puppeteer에서 에러가 발생하
 
 이제 이 파일을 보게되면,
 
-```javascript linenos
+```javascript
 #!/usr/bin/env node
 
 const url = require('url');
@@ -51,7 +51,7 @@ run({
 
 와 같이 작성되어있습니다. `package.json`에서 **reactSnap**설정을 불러오고, 이를 run함수의 인자로 넘겨주게 됩니다. `index.js`를 보면 다음과 같은 부분이 있습니다.
 
-```javascript linenos
+```javascript
 const crawl = require("./src/puppeteer_utils.js").crawl;
 
 ...
@@ -73,7 +73,7 @@ const run = async (userOptions, { fs } = { fs: nativeFs }) => {
 
 마지막으로 **crawl**함수를 보겠습니다. 이 파일은 `./src/puppeteer_utils.js`에 있습니다.
 
-```javascript linenos
+```javascript
 const crawl = async opt => {
   const {
     options,

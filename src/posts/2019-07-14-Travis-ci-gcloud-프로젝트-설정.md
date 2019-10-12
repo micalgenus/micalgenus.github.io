@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Travis-ci 환경에서 gcloud 프로젝트 설정
 categories: [traivs]
 tags: [gcloud, travis]
+path: '/articles/2019-07/Travis-ci-gcloud-프로젝트-설정'
+date: '2019-07-14T00:00:00.000Z'
 comments: true
 ---
 

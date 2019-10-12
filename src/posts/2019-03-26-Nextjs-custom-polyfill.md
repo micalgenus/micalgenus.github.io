@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Next.js Custom polyfill 적용하기
 categories: [React]
 tags: [React, Next.js]
+path: '/articles/2019-03/Nextjs-custom-polyfill'
+date: '2019-03-26T00:00:00.000Z'
 comments: true
 ---
 
@@ -10,7 +11,7 @@ React프레임워크인 Next.js에서 polyfill을 적용할 때, webpack의 설�
 
 > next.config.js
 
-{% highlight javascript linenos %}
+```javascript
 module.exports = {
   webpack: config => {
     // Unshift polyfills in main entrypoint.
@@ -25,13 +26,13 @@ module.exports = {
     return config;
   },
 };
-{% endhighlight %}
+```
 
 위와 같이 추가한 후, **.babelrc**의 `next/babel`프리셋중 **useBuiltIns**를 **"entry"**로 변경해준다.
 
 > .babelrc
 
-{% highlight JSON %}
+```JSON
 {
   "presets": [
     [
@@ -45,7 +46,7 @@ module.exports = {
     ]
   ]
 }
-{% endhighlight %}
+```
 
 마지막으로 `polyfill.js`파일을 만들어 하고자 하는 polyfill 설정을 적용하면 된다.
 

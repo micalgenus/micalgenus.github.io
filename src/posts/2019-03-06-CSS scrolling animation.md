@@ -1,8 +1,9 @@
 ---
-layout: post
 title: CSS scrolling animation
 categories: [Web]
 tags: [CSS]
+path: '/articles/2019-03/CSS-scrolling-animation'
+date: '2019-03-06T00:00:00.000Z'
 comments: true
 ---
 
@@ -14,17 +15,17 @@ javascript에서 jQuery를 사용하지 않고, `window.scroll`을 사용해 스
 
 사용법은 다음과 같다.
 
-{% highlight javascript %}
+```javascript
 import smoothscroll from 'smoothscroll-polyfill';
 
 // kick off the polyfill!
 smoothscroll.polyfill();
-{% endhighlight %}
+```
 
 사용하기 전에 선언을 해준다.
 
 그 후, 사용할 `window.scroll`을 다음과 같이 수정해준다.
 
-{% highlight javascript %}
+```javascript
 window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-{% endhighlight %}
+```

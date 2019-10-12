@@ -1,8 +1,9 @@
 ---
-layout: post
 title: IE Window scroll
 categories: [JavaScript]
 tags: [JavaScript, IE]
+path: '/articles/2019-03/IE-Window-scroll'
+date: '2019-03-03T00:00:00.000Z'
 comments: true
 ---
 
@@ -12,6 +13,6 @@ javascript를 사용하여 웹 개발을 할 때, 브라우저 스크롤이 필�
 
 그렇기에 다음과 같이 사용할 수 있다.
 
-{% highlight javascript %}
+```javascript
 const scroll = window.scrollY || document.documentElement.scrollTop;
-{% endhighlight %}
+```
