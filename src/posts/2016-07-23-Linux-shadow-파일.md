@@ -1,25 +1,26 @@
 ---
-layout: post
 title: Linux shadow파일
 categories: [Server]
 tags: [Linux, shadow]
+path: '/articles/2016-07/Linux-shadow-파일'
+date: '2016-07-23T06:00:00.000Z'
 comments: true
 ---
 
-리눅스에는 shadow라는 파일이 존재한다. 
+리눅스에는 shadow라는 파일이 존재한다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# ls -al /etc/shadow
 -rw-r----- 1 root shadow 869 Mar 22 18:48 /etc/shadow
-{% endhighlight %}
+```
 
 이 파일은 다음과 같은 구조로 이루어져있다.
 
-{% highlight bash %}
+```bash
 root@ubuntu:~# cat /etc/shadow
 root:!:16869:0:99999:7:::
 ... 여러 계정 정보 ...
-{% endhighlight %}
+```
 
 ①:②:③:④:⑤:⑥:⑦:⑧:⑨ 으로 이루어져있다. 각각 다음과 같은 정보를 가지고 있는다.
 

@@ -1,20 +1,21 @@
 ---
-layout: post
 title: Let's Encrypt wildcard 인증서
 categories: [Server]
 tags: [letsencryt]
+path: "/articles/2019-02/Let's-Encrypt-wildcard-인증서"
+date: '2019-02-15T03:00:00.000Z'
 comments: true
 ---
 
 우선 letsencrypt툴을 설치해줍니다.
 
-{% highlight bash %}
+```bash
 [root@micalgenus-com micalgenus]# yum install certbot
-{% endhighlight %}
+```
 
 사용하고자 하는 도메인을 입력하여 wildcard인증서를 만들어 줍니다.
 
-{% highlight bash %}
+```bash
 [root@micalgenus-com micalgenus]# certbot certonly --manual -d *.micalgenus.com -d micalgenus.com --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
 Starting new HTTPS connection (1): supporters.eff.org
 Obtaining a new certificate
@@ -28,19 +29,19 @@ your server, please ensure you're okay with that.
 Are you OK with your IP being logged?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 (Y)es/(N)o: y
-{% endhighlight %}
+```
 
 동의를 하지 않을 경우 진행할 수 없습니다.
 
 다음으로 넘어가면 DNS설정에서 값을 추가해 주어야 합니다.
 
-{% highlight bash %}
+```bash
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Please deploy a DNS TXT record under the name
 _acme-challenge.micalgenus.com with the following value:
- 
+
 HzvGQRCEQvf6TzyDgJpttZN4nI10EHV46asfbTCJM5I
- 
+
 Before continuing, verify the record is deployed.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Press Enter to Continue
@@ -57,17 +58,17 @@ asked to create multiple distinct TXT records with the same name. This is
 permitted by DNS standards.)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Press Enter to Continue
-{% endhighlight %}
+```
 
 DNS를 설정해주는 곳에 가서 두 값을 추가해 주어야 합니다.
 
 저의 경우는 `cloudflare`를 사용하기 때문에 다음과 같이 필드를 추가하였습니다.
 
-![img1]({{site.url}}/img/2019-02/Let-s-Encrypt-wildcard-certification/img1.png)
+![img1](/img/2019-02/Let-s-Encrypt-wildcard-certification/img1.png)
 
 값을 모두 추가하였을 경우 엔터를 눌러 진행을 하면 됩니다.
 
-{% highlight bash %}
+```bash
 Waiting for verification...
 Cleaning up challenges
 Resetting dropped connection: acme-v02.api.letsencrypt.org
@@ -88,6 +89,6 @@ IMPORTANT NOTES:
  - If you like Certbot, please consider supporting our work by:
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
    Donating to EFF:                    https://eff.org/donate-le
-{% endhighlight %}
+```
 
 인증서 파일이 생성이 되면 해당 경로에 인증서가 생기게 됩니다. letsencrypt의 인증서 유효기간은 `90`일이기 때문에 자주 갱신을 해주어야 합니다.

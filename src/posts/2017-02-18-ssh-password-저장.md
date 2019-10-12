@@ -1,9 +1,10 @@
 ---
-layout: post
 title: ssh password 저장
 slug: save-ssh-password
 categories: [Server]
 tags: [SSH]
+path: '/articles/2017-02/save-ssh-password'
+date: '2017-02-18T12:00:00.000Z'
 comments: true
 ---
 

@@ -1,8 +1,9 @@
 ---
-layout: post
 title: SEO canonical
 categories: [Web]
 tags: [HTML, SEO]
+path: '/articles/2019-02/SEO-canonical'
+date: '2019-02-20T16:00:00.000Z'
 comments: true
 ---
 
@@ -12,15 +13,14 @@ comments: true
 
 이를 해결하기 위해 `canonical`를 사용하여 해결할 수 있습니다.
 
-
-{% highlight html %}
+```html
 <!DOCTYPE html>
 <html>
   <head>
     <link rel="canonical" href="https://micalgenus.github.io/index.html" />
   </head>
 </html>
-{% endhighlight %}
+```
 
 위와 같은 페이지가 있다고 한다면, 해당 사이트가 `https://micalgenus.github.io/`, `https://micalgenus.github.io/index.html`, `https://micalgenus.github.io/index`와 같이 서로 다른 URL을 가질 경우 검색엔진은 3페이지를 모두 다른 페이지로 판단하게 됩니다.
 
@@ -28,8 +28,6 @@ comments: true
 
 제 블로그의 경우 다음과 같이 작성되어, Jekyll가 문서를 생성할 때 해당 옵션을 추가해 주었습니다.
 
-{% assign canonical = "{{ page.url | replace:'index.html','' | prepend: site.url }}" %}
-
-{% highlight html %}
-<link rel="canonical" href="{{ canonical }}" />
-{% endhighlight %}
+```html
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" />
+```

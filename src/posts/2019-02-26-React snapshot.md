@@ -1,8 +1,9 @@
 ---
-layout: post
 title: React snapshot
 categories: [React]
 tags: [React, build]
+path: '/articles/2019-02/React-snapshot'
+date: '2019-02-26T00:00:00.000Z'
 comments: true
 ---
 
@@ -18,27 +19,27 @@ React를 사용해서 배포를 할 경우 SSR(Server Side Rendering)을 해줘�
 
 우선 설치를 해줍니다.
 
-{% highlight bash %}
+```bash
 yarn add --dev react-snap
-{% endhighlight %}
+```
 
 그 후, `package.json`에 설정을 추가해 줍니다.
 
-{% highlight json linenos %}
+```json
 "scripts": {
   "postbuild": "react-snap"
 }
-{% endhighlight %}
+```
 
 마지막으로 `src/index.js`에서 다음 부분을 변경해 줍니다.
 
-{% highlight javascript linenos %}
+```javascript
 ReactDOM.render(<App />, document.getElementById('root'));
-{% endhighlight %}
+```
 
 이 부분을 다음과 같이 변경합니다.
 
-{% highlight javascript linenos %}
+```javascript
 const rootElement = document.getElementById('root');
 
 if (rootElement.hasChildNodes()) {
@@ -46,7 +47,7 @@ if (rootElement.hasChildNodes()) {
 } else {
   ReactDOM.render(<App />, rootElement);
 }
-{% endhighlight %}
+```
 
 기본적인 설정이 끝났으므로, 이제 빌드를 진행하게 되면 페이지가 생기게 됩니다.
 
@@ -54,14 +55,14 @@ if (rootElement.hasChildNodes()) {
 
 **Router**를 사용하여 여러 페이지를 구현했어도, 주소를 입력해주지 않으면 자동으로 빌드를 하지 않기 때문에 `package.json`에 직접 추가해 줘야 합니다.
 
-{% highlight json linenos %}
+```json
 "reactSnap": {
   "include": [
     "/",
     "/page1"
   ]
 }
-{% endhighlight %}
+```
 
 위와 같이 직접 URL을 입력해주어야 하기 때문에, 동적으로 변경되는 페이지에서는 SSR을 사용해야 합니다.
 

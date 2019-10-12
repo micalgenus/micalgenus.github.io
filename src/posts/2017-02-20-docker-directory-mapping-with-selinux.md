@@ -1,8 +1,9 @@
 ---
-layout: post
 title: docker directory mapping with selinux
 categories: [Server]
 tags: [Docker]
+path: '/articles/2017-02/docker-directory-mapping-with-selinux'
+date: '2017-02-20T00:00:00.000Z'
 comments: true
 ---
 
@@ -12,6 +13,6 @@ comments: true
 
 이 때에는 다음과 같이 설정해주면 된다.
 
-{% highlight bash %}
+```bash
 chcon -R -t svirt_sandbox_file_t /path/to/volume
-{% endhighlight %}
+```

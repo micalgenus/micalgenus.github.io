@@ -1,8 +1,9 @@
 ---
-layout: post
 title: task_uid
 categories: [Kernel]
 tags: [Kernel]
+path: '/articles/2017-02/Kernel-task-uid'
+date: '2017-02-08T00:00:00.000Z'
 comments: true
 ---
 

@@ -1,8 +1,9 @@
 ---
-layout: post
 title: firewalld 특정 아이피 특정 포트 방화벽 설정
 categories: [Server]
 tags: [firewalld]
+path: '/articles/2016-03/firewalld-특정-아이피-특정-포트-방화벽-설정'
+date: '2016-03-27T00:00:00.000Z'
 comments: true
 ---
 
@@ -12,13 +13,12 @@ CentOS 7 부터는 `firewalld`이라는 방화벽을 사용하게 된다.
 
 이 때 다음과 같은 명령으로 사용하면 된다.
 
-{% highlight bash %}
+```bash
 [root@localhost ~]# firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="192.168.123.123/32" service name="ssh" log prefix="ssh" accept'
 success
 [root@localhost ~]# firewall-cmd --reload
 success
-{% endhighlight %}
- 
+```
 
 여기서 ip와 netmask를 계산하여 적어주면 된다.
 
@@ -30,11 +30,11 @@ success
 
 서비스가 아닌 포트를 적용시킬 경우는 다음과 같이 설정하면 된다.
 
-{% highlight bash %}
+```bash
 [root@localhost ~]# firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="192.168.123.123/32" port protocol="tcp" port="4567" log prefix="log" accept'
 success
 [root@localhost ~]# firewall-cmd --reload
 success
-{% endhighlight %}
- 
+```
+
 방화벽 제거를 하려면 --add-rich-rule대신 `--remove-rich-rule`을 사용하면 된다.

@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Linux chpasswd
 categories: [Server]
 tags: [Ubuntu, passwd]
+path: '/articles/2016-04/Linux-chpasswd'
+date: '2016-04-24T00:00:00.000Z'
 comments: true
 ---
 
@@ -12,10 +13,10 @@ comments: true
 
 이 명령어는 관리자 권한을 가지고만 가능한 명령이다. 사용법은 다음과 같다.
 
-{% highlight bash %}
+```bash
 [root@localhost ~]# chpasswd --help
 Usage: chpasswd [options]
- 
+
 Options:
   -c, --crypt-method METHOD     the crypt method (one of NONE DES MD5 SHA256 SHA512)
   -e, --encrypted               supplied passwords are encrypted
@@ -25,14 +26,14 @@ Options:
   -R, --root CHROOT_DIR         directory to chroot into
   -s, --sha-rounds              number of SHA rounds for the SHA*
                                 crypt algorithms
-{% endhighlight %}
+```
 
 옵션은 암호화와 chroot_dir에 대해서 나와있다. 실제 비밀번호를 변경하는 방법은 다음과 같다.
 
-{% highlight bash %}
-[root@localhost ~]# chpasswd 
+```bash
+[root@localhost ~]# chpasswd
 User:Password
-{% endhighlight %}
+```
 
 이와 같이 사용해 주는데, ^D(EOF)의 경우는 `Ctrl + D`키를 누른 것이다.
 

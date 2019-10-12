@@ -1,8 +1,9 @@
 ---
-layout: post
 title: React eject 없이 babelrc 적용
 categories: [React]
 tags: [React, babel]
+path: '/articles/2019-02/React-eject-없이-babelrc-적용'
+date: '2019-02-28T00:00:00.000Z'
 comments: true
 ---
 
@@ -10,7 +11,7 @@ CRA으로 프로젝트를 생성한 뒤, .babelrc파일을 생성하여 설정�
 
 **./node_modules/react-scripts/config/webpack.config.js**를 살펴보면 다음과 같이 설정되어있습니다.
 
-{% highlight javascript linenos %}
+```javascript
 {
   test: /\.(js|mjs|jsx|ts|tsx)$/,
   include: paths.appSrc,
@@ -60,7 +61,7 @@ CRA으로 프로젝트를 생성한 뒤, .babelrc파일을 생성하여 설정�
     compact: isEnvProduction,
   },
 },
-{% endhighlight %}
+```
 
 10번줄에 `babelrc: false`에 의해서 .babelrc를 만들어도 적용되지 않습니다.
 
@@ -83,8 +84,8 @@ CRA으로 프로젝트를 생성한 뒤, .babelrc파일을 생성하여 설정�
 
 **babelrc**(.babelrc, .babelrc.js)파일을 사용하기 위해서는 `config-overrides.js`에 다음과 같이 추가해주면 됩니다.
 
-{% highlight javascript %}
-const { override, useBabelRc } = require("customize-cra");
+```javascript
+const { override, useBabelRc } = require('customize-cra');
 
 module.exports = override(useBabelRc());
-{% endhighlight %}
+```

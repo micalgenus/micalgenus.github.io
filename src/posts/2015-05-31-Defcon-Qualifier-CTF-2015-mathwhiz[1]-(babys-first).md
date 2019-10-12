@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Defcon Qualifier CTF 2015 - mathwhiz[1] (babys-first)
 categories: [CTF]
 tags: [Defcon Qualifier CTF 2015]
+path: '/articles/2015-05/Defcon-Qualifier-CTF-2015-mathwhiz-1-(babys-first)'
+date: '2015-05-31T00:00:00.000Z'
 comments: true
 ---
 
@@ -18,7 +19,7 @@ comments: true
 
 그래서 파이썬을 이용하여 스크립트를 짜기로 하였다.
 
-{% highlight python %}
+```python
 from socket import *
  
 HOST = 'mathwhiz_c951d46fed68687ad93a84e702800b7a.quals.shallweplayaga.me'
@@ -40,7 +41,7 @@ while 1:
   sock.send(result)
  
 sock.close()
-{% endhighlight %}
+```
 
 이러한 식으로 코드를 작성했다. 다음과 같은 순서로 코드를 작성하였다.
 
@@ -66,7 +67,7 @@ data = data.replace(']', ')')
 그렇게 다시 실행하다 보니, 중괄호 뿐만 아니라 **대괄호**도 추가가 되었다. 그래서 대괄호도 중괄호와 같은 방식으로 처리해 주었다.
 다시 실행하니 이번에는 ONE, TWO, THREE로 나오는 부분이 있다. 이 부분을 `ONE`를 1로, `TWO`를 2로, `THREE`를 3으로 치환해 주었다. 마지막으로 ^가 나왔는데, 이 기호는 수학적으로 제곱근을 의미하지만, 파이썬에서는 **비트연산**을 의미한다. 그래서 이 부분을 **제곱근 연산** "**" 으로 수정해 주었다.
 
-{% highlight python %}
+```python
 from socket import *
  
 HOST = 'mathwhiz_c951d46fed68687ad93a84e702800b7a.quals.shallweplayaga.me'
@@ -95,7 +96,7 @@ while 1:
   sock.send(result)
  
 sock.close()
-{% endhighlight %}
+```
 
 최종적으로 이러한 코드가 만들어 지게 되었다. 이 코드를 실행하면 flag를 획득할 수 있다.
 
