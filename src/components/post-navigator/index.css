@@ -4,16 +4,59 @@
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
 
   li {
     margin-bottom: 12px;
-  }
 
-  a {
-    padding: 7px 16px 8px 16px;
-    border-radius: 6px;
-    font-size: 12px;
-    opacity: 0.8;
+    a {
+      display: flex;
+      align-items: center;
+      padding: 7px 16px 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      opacity: 0.8;
+
+      b {
+        display: flex;
+        align-items: center;
+        animation-duration: 0.5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+        font-size: 2em;
+        padding: 0 0.1em 0.25em;
+      }
+    }
+
+    &:nth-child(1) {
+      a b {
+        animation-name: bounce;
+      }
+    }
+
+    &:nth-last-child(1) {
+      a b {
+        animation-name: bounce-revers;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    margin-left: 5px;
+  }
+  to {
+    margin-right: 5px;
+  }
+}
+
+@keyframes bounce-revers {
+  from {
+    margin-right: 5px;
+  }
+  to {
+    margin-left: 5px;
   }
 }
