@@ -12,8 +12,6 @@ interface Props {
 export const PostNavigator = ({ pageContext }: Props) => {
   const { previous, next } = pageContext;
 
-  console.log(previous);
-
   return (
     <ul className="navigator">
       <li>
