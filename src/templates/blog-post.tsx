@@ -52,7 +52,7 @@ export default ({ data, pageContext, location }: Props) => {
   };
 
   return (
-    <Layout>
+    <Layout className="post-body">
       <h2>{post.frontmatter.title}</h2>
       <p>
         {post.frontmatter.date} <b>&middot;</b> <span>{post.frontmatter.categories.join(', ')}</span>

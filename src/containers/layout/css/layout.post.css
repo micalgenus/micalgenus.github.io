@@ -1,0 +1,26 @@
+main.post-body > section {
+  p > code.language-text {
+    padding: 0.15em 0.3em;
+    margin: 0;
+    border: none;
+  }
+
+  div.gatsby-highlight {
+    pre {
+      border-radius: 0.5em;
+    }
+  }
+
+  pre,
+  code {
+    &::-webkit-scrollbar {
+      width: 0.4em;
+      height: 0.4em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      outline: 1px solid slategrey;
+    }
+  }
+}

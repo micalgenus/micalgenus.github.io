@@ -26,7 +26,11 @@ const query = graphql`
   }
 `;
 
-export class Layout extends Component<Partial<PageRendererProps>> {
+interface Props extends Partial<PageRendererProps> {
+  className?: string;
+}
+
+export class Layout extends Component<Props> {
   static propTypes = {
     children: propTypes.node.isRequired,
   };
@@ -36,12 +40,12 @@ export class Layout extends Component<Partial<PageRendererProps>> {
       <StaticQuery
         query={query}
         render={data => {
-          const { children } = this.props;
+          const { children, className } = this.props;
 
           return (
             <>
               <Header siteTitle={data.site.siteMetadata.title} />
-              <main>{children}</main>
+              <main className={className}>{children}</main>
               <Footer />
             </>
           );
