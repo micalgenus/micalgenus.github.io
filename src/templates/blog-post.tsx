@@ -4,6 +4,7 @@ import Disqus from 'gatsby-plugin-disqus';
 
 import { Layout } from '@/containers/layout';
 import { PostNavigator } from '@/components/post-navigator';
+import SEO from '@/components/seo';
 
 export interface PageContext {
   isCreatedByStatefulCreatePages: boolean;
@@ -27,6 +28,7 @@ interface Props extends PageRendererProps {
       html: string;
       frontmatter: {
         categories: string[];
+        tags: string[];
         title: string;
         date: string;
       };
@@ -53,6 +55,7 @@ export default ({ data, pageContext, location }: Props) => {
 
   return (
     <Layout className="post-body">
+      <SEO title="Micalgenus" keywords={['gatsby', 'application', 'react', ...post.frontmatter.categories, ...post.frontmatter.tags]} />
       <h2>{post.frontmatter.title}</h2>
       <p>
         {post.frontmatter.date} <b>&middot;</b> <span>{post.frontmatter.categories.join(', ')}</span>
@@ -81,6 +84,7 @@ export const pageQuery = graphql`
         categories
         title
         date(formatString: "MMM DD, YYYY")
+        tags
       }
     }
   }

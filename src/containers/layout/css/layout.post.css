@@ -1,26 +1,59 @@
-main.post-body > section {
-  p > code.language-text {
-    padding: 0.15em 0.3em;
+main.post-body {
+  & > h2 {
+    font-size: 2.2em;
     margin: 0;
-    border: none;
+    border-bottom: none;
   }
 
-  div.gatsby-highlight {
-    pre {
-      border-radius: 0.5em;
+  & > p {
+    display: flex;
+    align-item: center;
+    margin: 0;
+    color: #bbb;
+    border-bottom: 1px solid #eee;
+    padding-top: 0.25em;
+    padding-right: 10px;
+    padding-bottom: 0.5em;
+    width: max-content;
+    text-transform: uppercase;
+
+    b {
+      margin-left: 0.25em;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      margin-left: 0.25em;
+      font-size: 0.8em;
+      text-transform: none;
     }
   }
 
-  pre,
-  code {
-    &::-webkit-scrollbar {
-      width: 0.4em;
-      height: 0.4em;
+  & > section {
+    p > code.language-text {
+      padding: 0.15em 0.3em;
+      margin: 0;
+      border: none;
     }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: #ccc;
-      outline: 1px solid slategrey;
+    div.gatsby-highlight {
+      pre {
+        border-radius: 0.5em;
+      }
+    }
+
+    pre,
+    code {
+      &::-webkit-scrollbar {
+        width: 0.4em;
+        height: 0.4em;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        outline: 1px solid slategrey;
+      }
     }
   }
 }
