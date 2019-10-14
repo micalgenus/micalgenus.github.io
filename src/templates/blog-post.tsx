@@ -26,6 +26,7 @@ interface Props extends PageRendererProps {
       id: string;
       html: string;
       frontmatter: {
+        categories: string[];
         title: string;
         date: string;
       };
@@ -53,7 +54,9 @@ export default ({ data, pageContext, location }: Props) => {
   return (
     <Layout>
       <h2>{post.frontmatter.title}</h2>
-      <p>{post.frontmatter.date}</p>
+      <p>
+        {post.frontmatter.date} <b>&middot;</b> <span>{post.frontmatter.categories.join(', ')}</span>
+      </p>
       <section dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostNavigator pageContext={pageContext} />
       {pageContext.comments && <Disqus config={disqusConfig} />}
@@ -75,8 +78,9 @@ export const pageQuery = graphql`
       # excerpt(pruneLength: 280)
       html
       frontmatter {
+        categories
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM DD, YYYY")
       }
     }
   }
