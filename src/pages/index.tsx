@@ -1,15 +1,46 @@
 import React from 'react';
-// import { Link } from 'gatsby';
+import { graphql, PageRendererProps } from 'gatsby';
 
 import { Layout } from '@/containers/layout';
 import SEO from '@/components/seo';
-// import Disqus from 'gatsby-plugin-disqus';
+import Preview from '@/components/preview';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
-    <section></section>
-  </Layout>
-);
+import { PreviewPost } from '@/components/preview-content';
+
+interface Props extends PageRendererProps {
+  data: {
+    allMarkdownRemark: {
+      edges: Array<{
+        node: PreviewPost;
+      }>;
+    };
+  };
+}
+
+const IndexPage = ({ data }: Props) => {
+  return (
+    <Layout>
+      <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
+      <Preview posts={data.allMarkdownRemark.edges.map(({ node }) => node)} />
+    </Layout>
+  );
+};
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 10) {
+      edges {
+        node {
+          excerpt(pruneLength: 450)
+          frontmatter {
+            path
+            title
+            date(formatString: "MMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`;

@@ -31,16 +31,29 @@ main.post-body {
   }
 
   & > section {
-    p > code.language-text {
+    code.language-text {
       padding: 0.15em 0.3em;
       margin: 0;
       border: none;
+    }
+
+    pre > code.language-text {
+      padding: 0;
     }
 
     div.gatsby-highlight {
       pre {
         border-radius: 0.5em;
       }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.8em 0;
     }
 
     pre,

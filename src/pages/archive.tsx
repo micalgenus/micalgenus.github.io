@@ -1,16 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import { Link } from 'gatsby';
 
 import { Layout } from '@/containers/layout';
 import SEO from '@/components/seo';
+import Archive from '@/components/archive';
 import { graphql, PageRendererProps } from 'gatsby';
-
-interface PostMeta {
-  path: string;
-  title: string;
-  date: string;
-}
+import { PostMeta } from '@/components/archive-content';
 
 interface Props extends PageRendererProps {
   data: {
@@ -38,25 +33,9 @@ export default ({ data }: Props) => {
   return (
     <Layout className="archive">
       <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
-      {years.map(year => {
-        return (
-          <>
-            <div className="archive-title">
-              <h3>{year}</h3>
-            </div>
-            <ul>
-              {items[year].map(item => {
-                return (
-                  <li>
-                    <span>{moment(item.date).format('MMM DD')}</span>
-                    <Link to={item.path}>{item.title}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </>
-        );
-      })}
+      {years.map(year => (
+        <Archive key={year} year={year} items={items[year]} />
+      ))}
     </Layout>
   );
 };

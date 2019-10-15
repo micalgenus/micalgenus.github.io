@@ -1,0 +1,30 @@
+li.preview {
+  a {
+    &:active,
+    &:hover,
+    &:link,
+    &:visited {
+      color: #333;
+    }
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  span {
+    font-size: 0.9em;
+    color: #999;
+  }
+
+  &:not(:nth-last-child(1)) {
+    margin-bottom: 4em;
+  }
+
+  &:hover {
+    h3,
+    p {
+      color: #666;
+    }
+  }
+}

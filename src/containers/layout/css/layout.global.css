@@ -43,13 +43,29 @@ h6 {
   text-shadow: none;
 }
 
-a:link,
-a:visited,
-a:active,
-a:hover {
-  color: $layout-highlight-color;
+a {
+  transition: 0.2s;
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $layout-highlight-color;
+  }
+
+  &:hover {
+    color: $layout-theme-color;
+  }
 }
 
 a {
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }

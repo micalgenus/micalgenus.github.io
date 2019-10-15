@@ -1,9 +1,8 @@
 import React from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import Disqus from 'gatsby-plugin-disqus';
 
 import { Layout } from '@/containers/layout';
-import { PostNavigator } from '@/components/post-navigator';
+import Content from '@/components/contents';
 import SEO from '@/components/seo';
 
 export interface PageContext {
@@ -38,11 +37,6 @@ interface Props extends PageRendererProps {
 }
 
 export default ({ data, pageContext, location }: Props) => {
-  // useEffect(() => {
-  //   ScrollManager.init();
-  //   return () => ScrollManager.destroy();
-  // }, []);
-
   const post = data.markdownRemark;
   const metaData = data.site.siteMetadata;
   const { siteUrl } = metaData;
@@ -56,13 +50,16 @@ export default ({ data, pageContext, location }: Props) => {
   return (
     <Layout className="post-body">
       <SEO title="Micalgenus" keywords={['gatsby', 'application', 'react', ...post.frontmatter.categories, ...post.frontmatter.tags]} />
-      <h2>{post.frontmatter.title}</h2>
-      <p>
-        {post.frontmatter.date} <b>&middot;</b> <span>{post.frontmatter.categories.join(', ')}</span>
-      </p>
-      <section dangerouslySetInnerHTML={{ __html: post.html }} />
-      <PostNavigator pageContext={pageContext} />
-      {pageContext.comments && <Disqus config={disqusConfig} />}
+      <Content
+        disqusConfig={disqusConfig}
+        pageContext={pageContext}
+        postData={{
+          title: post.frontmatter.title,
+          date: post.frontmatter.date,
+          categories: post.frontmatter.categories,
+          html: post.html,
+        }}
+      />
     </Layout>
   );
 };
@@ -78,7 +75,6 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       id
-      # excerpt(pruneLength: 280)
       html
       frontmatter {
         categories
