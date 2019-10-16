@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPortrait, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPortrait } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Avatar from '@micalgenus/gatsby-plugin-github-avatar';
 

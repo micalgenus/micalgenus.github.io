@@ -56,7 +56,8 @@
   "devDependencies": {
     "@types/lodash": "^4.14.142",
     "@types/react-helmet": "^5.0.8",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "typescript": "^3.6.4"
   },
   "keywords": [
     "gatsby"
@@ -67,7 +68,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{ts,tsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "type-check": "tsc -p ."
   },
   "repository": {
     "type": "git",

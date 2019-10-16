@@ -1,5 +1,6 @@
-import React from 'react';
+// @ts-ignore
 import Disqus from 'gatsby-plugin-disqus';
+import React from 'react';
 
 import { PostNavigator } from '@/components/post-navigator';
 import { PageContext } from '@/templates/blog-post';
