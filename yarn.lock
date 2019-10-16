@@ -1593,10 +1593,10 @@
   dependencies:
     core-js "^2.5.7"
 
-"@micalgenus/gatsby-plugin-github-avatar@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@micalgenus/gatsby-plugin-github-avatar/-/gatsby-plugin-github-avatar-0.0.14.tgz#e12f48e5b5820ee51f2ca3e3ac2bc593414addb5"
-  integrity sha512-LPm1ueWzU8CMtpe2Vd6oSfxhwbjaesFwYSdhaUboJxTov6yskgFbvKsSalRC7V99tAQNDFwHdxoHdBDdE+Kbhw==
+"@micalgenus/gatsby-plugin-github-avatar@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@micalgenus/gatsby-plugin-github-avatar/-/gatsby-plugin-github-avatar-0.0.18.tgz#e1764054469e935f1ec18599b4b7f3517879457a"
+  integrity sha512-bEk2pgbW0BG/qFaUaw6SEVfKcft6JT1VU1OQBHEunKAptD/n3WsNriGVEb3moUolrPbkUvqFA70FqZQzYzknuA==
   dependencies:
     axios "^0.19.0"
     react "^16.8.6"

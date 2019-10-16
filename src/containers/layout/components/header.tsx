@@ -27,9 +27,9 @@ export default class Header extends Component<Props> {
               <li>
                 <Link to="/categories">categories</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/tags">tags</Link>
-              </li>
+              </li> */}
             </ul>
             <ul className="icons">
               <li>

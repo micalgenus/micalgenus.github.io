@@ -16,3 +16,11 @@
     font-weight: bold;
   }
 }
+
+.categories {
+  .archive-container > ul li {
+    span {
+      width: 7em;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 
 import { Layout } from '@/containers/layout';
 import SEO from '@/components/seo';
@@ -7,13 +6,12 @@ import Archive from '@/components/archive';
 import { graphql, PageRendererProps } from 'gatsby';
 import { PostMeta } from '@/components/archive-content';
 
-type PostMetadata = Pick<PostMeta, 'path' | 'title' | 'date'>;
 interface Props extends PageRendererProps {
   data: {
     allMarkdownRemark: {
       edges: Array<{
         node: {
-          frontmatter: PostMetadata;
+          frontmatter: PostMeta;
         };
       }>;
     };
@@ -22,20 +20,23 @@ interface Props extends PageRendererProps {
 
 export default ({ data }: Props) => {
   const posts = data.allMarkdownRemark.edges.map(({ node: { frontmatter: post } }) => post);
-  const items: { [year: string]: PostMetadata[] } = {};
+  const items: { [category: string]: PostMeta[] } = {};
   for (const post of posts) {
-    const year = moment(post.date).format('YYYY');
-    items[year] = (items[year] || []).concat(post);
+    const { categories } = post;
+    for (const category of categories) {
+      items[category] = (items[category] || []).concat(post);
+    }
   }
 
-  const years: string[] = Object.keys(items);
-  years.sort().reverse();
+  const categories: string[] = Object.entries(items)
+    .sort(([, { length: a }], [, { length: b }]) => b - a)
+    .map(([category]) => category);
 
   return (
-    <Layout className="archive">
+    <Layout className="categories">
       <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
-      {years.map(year => (
-        <Archive key={year} title={year} items={items[year]} />
+      {categories.map(category => (
+        <Archive key={category} title={category} items={items[category]} momentFormat="MMM DD, YYYY" />
       ))}
     </Layout>
   );
@@ -50,6 +51,7 @@ export const pageQuery = graphql`
             path
             title
             date
+            categories
           }
         }
       }

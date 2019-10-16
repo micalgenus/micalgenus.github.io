@@ -6,7 +6,7 @@ import './index.css';
 
 export interface PreviewPost {
   excerpt: string;
-  frontmatter: PostMeta;
+  frontmatter: Pick<PostMeta, 'path' | 'title' | 'date'>;
 }
 
 export default ({ excerpt, frontmatter: { title, date, path } }: PreviewPost) => {

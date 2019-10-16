@@ -8,7 +8,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.5",
-    "@micalgenus/gatsby-plugin-github-avatar": "^0.0.14",
+    "@micalgenus/gatsby-plugin-github-avatar": "^0.0.18",
     "autoprefixer": "^9.6.4",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-gatsby": "^0.2.17",
