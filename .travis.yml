@@ -5,16 +5,23 @@ cache:
   npm: true
   yarn: true
 
+branches:
+  only:
+    - gatsby
+
 install:
   - yarn
 
 script:
   - yarn build
   - yarn type-check
-# deploy:
-#   - provider: npm
-#     email: micalgenus@gmail.com
-#     api_key: $NPM_KEY
-#     skip_cleanup: true
-#     on:
-#       branch: master
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  local_dir: public
+  target_branch: master
+  keep_history: true
+  on:
+    branch: gatsby
