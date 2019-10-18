@@ -31,4 +31,24 @@
       margin-bottom: 1em;
     }
   }
+
+  @media (max-width: 500px) {
+    & {
+      .archive-title > h3 {
+        margin-left: 0.75em !important;
+      }
+
+      ul {
+        li {
+          margin-left: 1.75em;
+          flex-direction: column;
+          align-items: flex-start;
+
+          span {
+            margin-bottom: 0.35em;
+          }
+        }
+      }
+    }
+  }
 }
