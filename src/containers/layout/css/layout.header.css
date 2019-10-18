@@ -16,6 +16,17 @@ header {
       justify-content: space-between;
       width: 100%;
       max-width: $layout-max-width;
+
+      @media (max-width: $mobile-width) {
+        ul.icons {
+          display: none;
+        }
+        ul {
+          width: 100%;
+          justify-content: space-around;
+        }
+      }
+
       ul {
         display: flex;
         flex-direction: row;
@@ -37,7 +48,7 @@ header {
           &.selected {
             a {
               color: $layout-theme-color;
-              font-weight: bold;
+              /* font-weight: bold; */
             }
           }
         }
@@ -79,6 +90,12 @@ header {
       text-align: center;
       padding-bottom: 2.5em;
       border-bottom: 1px solid #ccc;
+
+      @media (max-width: $mobile-width) {
+        & {
+          width: 60%;
+        }
+      }
     }
   }
 }
