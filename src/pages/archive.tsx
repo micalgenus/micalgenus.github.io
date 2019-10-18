@@ -20,7 +20,7 @@ interface Props extends PageRendererProps {
   };
 }
 
-export default ({ data }: Props) => {
+export default ({ data, location }: Props) => {
   const posts = data.allMarkdownRemark.edges.map(({ node: { frontmatter: post } }) => post);
   const items: { [year: string]: PostMetadata[] } = {};
   for (const post of posts) {
@@ -32,7 +32,7 @@ export default ({ data }: Props) => {
   years.sort().reverse();
 
   return (
-    <Layout className="archive">
+    <Layout className="archive" location={location}>
       <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
       {years.map(year => (
         <Archive key={year} title={year} items={items[year]} />

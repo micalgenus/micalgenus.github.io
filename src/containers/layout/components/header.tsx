@@ -7,24 +7,26 @@ import Avatar from '@micalgenus/gatsby-plugin-github-avatar';
 
 interface Props {
   siteTitle: string;
+  location?: string;
 }
 
 export default class Header extends Component<Props> {
   render() {
-    const { siteTitle } = this.props;
+    const { siteTitle, location } = this.props;
+    const [, path] = (location || '/').split('/');
 
     return (
       <header>
         <div className="header-menu">
           <nav>
             <ul>
-              <li className="selected">
+              <li className={path === '' ? 'selected' : ''}>
                 <Link to="/">home</Link>
               </li>
-              <li>
+              <li className={path === 'archive' ? 'selected' : ''}>
                 <Link to="/archive">archive</Link>
               </li>
-              <li>
+              <li className={path === 'categories' ? 'selected' : ''}>
                 <Link to="/categories">categories</Link>
               </li>
               {/* <li>

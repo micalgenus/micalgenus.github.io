@@ -48,7 +48,7 @@ export default ({ data, pageContext, location }: Props) => {
   };
 
   return (
-    <Layout className="post-body">
+    <Layout className="post-body" location={location}>
       <SEO title="Micalgenus" keywords={['gatsby', 'application', 'react', ...post.frontmatter.categories, ...post.frontmatter.tags]} />
       <Content
         disqusConfig={disqusConfig}

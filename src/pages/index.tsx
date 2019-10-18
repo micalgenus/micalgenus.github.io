@@ -17,9 +17,9 @@ interface Props extends PageRendererProps {
   };
 }
 
-const IndexPage = ({ data }: Props) => {
+const IndexPage = ({ data, location }: Props) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
       <Preview posts={data.allMarkdownRemark.edges.map(({ node }) => node)} />
     </Layout>

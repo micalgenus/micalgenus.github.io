@@ -40,11 +40,11 @@ export class Layout extends Component<Props> {
       <StaticQuery
         query={query}
         render={data => {
-          const { children, className } = this.props;
+          const { children, className, location } = this.props;
 
           return (
             <>
-              <Header siteTitle={data.site.siteMetadata.title} />
+              <Header siteTitle={data.site.siteMetadata.title} location={location && location.pathname} />
               <main className={className}>{children}</main>
               <Footer />
             </>

@@ -18,7 +18,7 @@ interface Props extends PageRendererProps {
   };
 }
 
-export default ({ data }: Props) => {
+export default ({ data, location }: Props) => {
   const posts = data.allMarkdownRemark.edges.map(({ node: { frontmatter: post } }) => post);
   const items: { [category: string]: PostMeta[] } = {};
   for (const post of posts) {
@@ -33,7 +33,7 @@ export default ({ data }: Props) => {
     .map(([category]) => category);
 
   return (
-    <Layout className="categories">
+    <Layout className="categories" location={location}>
       <SEO title="Micalgenus" keywords={[`gatsby`, `application`, `react`]} />
       {categories.map(category => (
         <Archive key={category} title={category} items={items[category]} momentFormat="MMM DD, YYYY" />
