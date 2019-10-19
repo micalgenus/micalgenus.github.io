@@ -69,4 +69,13 @@ main.post-body {
       }
     }
   }
+
+  @media (max-width: $mobile-width) {
+    & {
+      font-size: 0.85em;
+      & > *:not(#disqus_thread) {
+        margin: 0 10px !important;
+      }
+    }
+  }
 }

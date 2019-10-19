@@ -1,3 +1,5 @@
+@import '../../css/variable.css';
+
 .navigator {
   display: flex;
   flex-wrap: wrap;
@@ -27,6 +29,10 @@
         font-size: 2em;
         padding: 0 0.1em 0.25em;
       }
+
+      p {
+        display: none;
+      }
     }
 
     &:nth-child(1) {
@@ -38,6 +44,20 @@
     &:nth-last-child(1) {
       a b {
         animation-name: bounce-revers;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    a {
+      b {
+        padding: 0 0.1em 0.1em !important;
+      }
+      span {
+        display: none;
+      }
+      p {
+        display: flex !important;
       }
     }
   }

@@ -17,14 +17,18 @@ export const PostNavigator = ({ pageContext }: Props) => {
       <li>
         {previous && (
           <Link to={previous.frontmatter.path} rel="prev">
-            <b>←</b> {previous.frontmatter.title}
+            <b>←</b>
+            <span>{previous.frontmatter.title}</span>
+            <p>이전 글</p>
           </Link>
         )}
       </li>
       <li>
         {next && (
           <Link to={next.frontmatter.path} rel="next">
-            {next.frontmatter.title} <b>→</b>
+            <span>{next.frontmatter.title}</span>
+            <p>다음 글</p>
+            <b>→</b>
           </Link>
         )}
       </li>
