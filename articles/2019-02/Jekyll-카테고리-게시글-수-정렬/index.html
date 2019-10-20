@@ -49,15 +49,12 @@
 <p>그래서 원하는 구성인 이름을 할지, 게시글 수로 할지 고민을 하다가 최종적으로 게시글 수로 정렬을 하게 되었다.</p>
 <p>가장 처음에는 <code class="language-text">site.categories</code>에 있는 값을 정렬하려고 했지만, 실패했다.</p>
 <p>그래서 해당 값에서 게시글이 몇개인지를 추출하여 사용하였다.</p>
-<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">raw</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
+<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> name <span class="token operator">=</span> s <span class="token operator">|</span> <span class="token function">first</span> <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> <span class="token function">size</span> <span class="token operator">=</span> site.categories[name] <span class="token operator">|</span> <span class="token function">size</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endraw</span> <span class="token operator">%</span>}</code></pre></div>
+{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}</code></pre></div>
 <p>위와 같이 작성하면 <code class="language-text">size</code>에 게시글 수가 저장된다. 하지만 정렬을 하는 기준은 문자열이기 때문에, <strong>0</strong> 패딩을 추가해 주어야 한다.</p>
-<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">raw</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">assign</span> max_length <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">%</span>}
+<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">assign</span> max_length <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">%</span>}
 
 {<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> name <span class="token operator">=</span> s <span class="token operator">|</span> <span class="token function">first</span> <span class="token operator">%</span>}
@@ -66,11 +63,9 @@
   {<span class="token operator">%</span> <span class="token keyword">if</span> max_length <span class="token operator">&lt;</span> len <span class="token operator">%</span>}
     {<span class="token operator">%</span> <span class="token keyword">assign</span> max_length <span class="token operator">=</span> len <span class="token operator">|</span> <span class="token function">plus</span><span class="token operator">:</span> <span class="token number">0</span><span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">endif</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endraw</span> <span class="token operator">%</span>}</code></pre></div>
+{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}</code></pre></div>
 <p>위와 같이 <code class="language-text">max_length</code>에 padding을 몇개 넣어야 할지 계산하였다.</p>
-<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">raw</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
+<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> name <span class="token operator">=</span> s <span class="token operator">|</span> <span class="token function">first</span> <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> <span class="token function">size</span> <span class="token operator">=</span> site.categories[name] <span class="token operator">|</span> <span class="token function">size</span> <span class="token operator">%</span>}
 
@@ -80,11 +75,9 @@
   {<span class="token operator">%</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> (<span class="token number">1.</span>.pad) <span class="token operator">%</span>}
     {<span class="token operator">%</span> <span class="token keyword">assign</span> <span class="token function">size</span> <span class="token operator">=</span> <span class="token function">size</span> <span class="token operator">|</span> <span class="token function">prepend</span><span class="token operator">:</span> '<span class="token number">0</span>' <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endraw</span> <span class="token operator">%</span>}</code></pre></div>
+{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}</code></pre></div>
 <p>그리고, <code class="language-text">size</code>에 <strong>0</strong>을 추가해 준다.</p>
-<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">raw</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">assign</span> categories <span class="token operator">=</span> '' <span class="token operator">|</span> <span class="token function">split</span><span class="token operator">:</span> "" <span class="token operator">%</span>}
+<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">assign</span> categories <span class="token operator">=</span> '' <span class="token operator">|</span> <span class="token function">split</span><span class="token operator">:</span> "" <span class="token operator">%</span>}
 {<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> name <span class="token operator">=</span> s <span class="token operator">|</span> <span class="token function">first</span> <span class="token operator">%</span>}
   {<span class="token operator">%</span> <span class="token keyword">assign</span> <span class="token function">size</span> <span class="token operator">=</span> site.categories[name] <span class="token operator">|</span> <span class="token function">size</span> <span class="token operator">%</span>}
@@ -102,13 +95,11 @@
   {<span class="token operator">%</span> <span class="token keyword">assign</span> categories <span class="token operator">=</span> categories <span class="token operator">|</span> push<span class="token operator">:</span> temp <span class="token operator">%</span>}
 {<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
 
-{<span class="token operator">%</span> <span class="token keyword">assign</span> categories <span class="token operator">=</span> categories <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">endraw</span> <span class="token operator">%</span>}</code></pre></div>
+{<span class="token operator">%</span> <span class="token keyword">assign</span> categories <span class="token operator">=</span> categories <span class="token operator">|</span> <span class="token function">sort</span> <span class="token operator">%</span>}</code></pre></div>
 <p>마지막으로 만든 값을 배열에 저장하고, 정렬한다.</p>
 <p><strong>categories</strong>에는 <code class="language-text">[&quot;size&quot;, &quot;category&quot;]</code>을 원소로 가지는 배열로 구성되어있다.</p>
 <p>최종적으로 다음과 같이 작성하였다.</p>
-<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">raw</span> <span class="token operator">%</span>}
-{<span class="token operator">%</span> <span class="token keyword">assign</span> split_char <span class="token operator">=</span> '#' <span class="token operator">%</span>}
+<div class="gatsby-highlight" data-language="liquid"><pre class="language-liquid"><code class="language-liquid">{<span class="token operator">%</span> <span class="token keyword">assign</span> split_char <span class="token operator">=</span> '#' <span class="token operator">%</span>}
 {<span class="token operator">%</span> <span class="token keyword">assign</span> max_length <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">%</span>}
 
 {<span class="token operator">%</span> <span class="token keyword">for</span> s <span class="token keyword">in</span> site.categories <span class="token operator">%</span>}
@@ -152,9 +143,7 @@
     <span class="token operator">&lt;</span><span class="token operator">/</span>article<span class="token operator">></span>
     {<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-{<span class="token operator">%</span> <span class="token keyword">endraw</span> <span class="token operator">%</span>}</code></pre></div></section><ul class="navigator"><li><a rel="prev" href="/articles/2019-02/Regex-특정-문자-제외-필터링"><b>←</b><span>Regex 특정 문자 제외 필터링</span><p>이전 글</p></a></li><li><a rel="next" href="/articles/2019-02/React-snapshot"><span>React snapshot</span><p>다음 글</p><b>→</b></a></li></ul><div id="disqus_thread"></div></main><footer>©<!-- --> <a href="https://github.com/micalgenus" target="_blank">Micalgenus</a>, Made with<!-- --> <a href="https://www.gatsbyjs.org/" target="_blank">GatsbyJS</a></footer></div></div><script>
+{<span class="token operator">%</span> <span class="token keyword">endfor</span> <span class="token operator">%</span>}</code></pre></div></section><ul class="navigator"><li><a rel="prev" href="/articles/2019-02/Regex-특정-문자-제외-필터링"><b>←</b><span>Regex 특정 문자 제외 필터링</span><p>이전 글</p></a></li><li><a rel="next" href="/articles/2019-02/React-snapshot"><span>React snapshot</span><p>다음 글</p><b>→</b></a></li></ul><div id="disqus_thread"></div></main><footer>©<!-- --> <a href="https://github.com/micalgenus" target="_blank">Micalgenus</a>, Made with<!-- --> <a href="https://www.gatsbyjs.org/" target="_blank">GatsbyJS</a></footer></div></div><script>
   
   
   if(true) {
