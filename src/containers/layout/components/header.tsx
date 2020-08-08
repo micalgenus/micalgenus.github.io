@@ -49,11 +49,11 @@ export default class Header extends Component<Props> {
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://portfolio.micalgenus.com/" target="_blank">
                   <FontAwesomeIcon icon={faPortrait} />
                 </a>
-              </li>
+              </li> */}
               {/* <li>
                 <a className="search-btn">
                   <FontAwesomeIcon icon={faSearch} />
