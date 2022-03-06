@@ -6,8 +6,6 @@ name: github-actions/deploy
 on:
   push:
     branches: [ gatsby ]
-  pull_request:
-    branches: [ gatsby ]
 
 jobs:
   build:
