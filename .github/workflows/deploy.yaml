@@ -29,3 +29,4 @@ jobs:
         ref: master
     - run: rm -rf target/* && mv public/* target/
     - run: git add . && git commit -m "Deploy $GITHUB_SHA" && git push master origin/master
+      working-directory: target
