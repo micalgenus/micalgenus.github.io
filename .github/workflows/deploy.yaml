@@ -28,5 +28,14 @@ jobs:
         path: target
         ref: master
     - run: rm -rf target/* && mv public/* target/
-    - run: git add . && git commit -m "Deploy $GITHUB_SHA" && git push master origin/master
+    - name: git commit
       working-directory: target
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Deploy $GITHUB_SHA" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: master
+        directory: target
